@@ -1,2 +1,2 @@
 <h1> Hi good morning, This is Gurunath !!! </h1>
-<h2> This project is deployed through Ansible playbook </h2>
+<h2> This is simple devops project-2, deployed through "Ansible_playbook" </h2>
