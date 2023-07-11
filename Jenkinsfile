@@ -14,14 +14,14 @@ pipeline{
                 sh "mvn clean install"
             }
         }
-      stage("Deploy to tomcat"){
+   /*   stage("Deploy to tomcat"){
             steps{
                 sshagent(['Deploy_user']) {
                 sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.87.199:/opt/tomcat/webapps"
                
                }
             }
-        } 
+        } */
       stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://3.235.108.13:9000"
