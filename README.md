@@ -42,3 +42,4 @@ pipeline{
 plugins:
 --------
 maven: Maven Integration plugin, Pipeline Maven Integration Plugin
+https://www.youtube.com/watch?v=NcFIQejkRL8&t=597s
