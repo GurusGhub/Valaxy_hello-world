@@ -37,3 +37,8 @@ pipeline{
         }     
     }
 }
+
+
+plugins:
+--------
+maven: Maven Integration plugin, Pipeline Maven Integration Plugin
