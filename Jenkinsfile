@@ -28,10 +28,11 @@ pipeline{
       } */
       steps {
         withsonarQubeEnv('SonarQubeScanner'){
-          sh 'mvn clean verify sonar:sonar \
+          sh "mvn sonar:sonar"
+      /*  sh 'mvn clean verify sonar:sonar \
           -Dsonar.projectKey=devsecops_project-key \
           -Dsonar.host.url=http://100.24.113.214:9000 \
-          -Dsonar.login=d128d17268ae81a0b6b3d4d92f47cf7917af8126'
+          -Dsonar.login=d128d17268ae81a0b6b3d4d92f47cf7917af8126' */
         }
         }
       }
