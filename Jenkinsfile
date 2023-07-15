@@ -27,7 +27,7 @@ pipeline{
         SONAR_URL = "http://10.0.0.165:9000"
       } */
       steps {
-        withsonarQubeEnv('SonarQube'){
+        withsonarQubeEnv('SonarQubeScanner'){
           sh 'mvn sonar:sonar'
         }
         }
