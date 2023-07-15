@@ -23,14 +23,14 @@ pipeline{
             }
         } */
       stage('Static Code Analysis') {
-      environment {
+      /* environment {
         SONAR_URL = "http://10.0.0.165:9000"
-      }
+      } */
       steps {
-        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-          sh 'cd Valaxy_hello-world && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+        withsonarQubeEnv('SonarQube'){
+          sh 'mvn sonar:sonar'
+        }
         }
       }
     }
   }
-}
