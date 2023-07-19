@@ -27,7 +27,7 @@ pipeline{
         SONAR_URL = "http://10.0.0.165:9000"
       } */
       steps {
-        withsonarQubeEnv('SonarQubeScanner'){
+        withsonarQubeEnv('SonarQube9.4'){
           sh "mvn sonar:sonar"
       /*  sh 'mvn clean verify sonar:sonar \
           -Dsonar.projectKey=devsecops_project-key \
