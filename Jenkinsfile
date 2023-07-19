@@ -22,18 +22,33 @@ pipeline{
                }
             }
         } */
-      stage('Static Code Analysis') {
+        //  stage('Static Code Analysis') {steps {
+       //   withsonarQubeEnv('SonarQube9.4'){
+      //      sh "mvn sonar:sonar"
+     //    }
+    //   }
+   //
+        (OR)
       /* environment {
         SONAR_URL = "http://10.0.0.165:9000"
       } */
-      steps {
-        withsonarQubeEnv('SonarQube9.4'){
-          sh "mvn sonar:sonar"
+      
       /*  sh 'mvn clean verify sonar:sonar \
           -Dsonar.projectKey=devsecops_project-key \
           -Dsonar.host.url=http://100.24.113.214:9000 \
           -Dsonar.login=d128d17268ae81a0b6b3d4d92f47cf7917af8126' */
+       (OR)
+        stage('Static Code Analysis') {
+      environment {
+        SONAR_URL = "http://100.24.113.214:9000"
+      }
+      steps {
+        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+          sh 'cd Valaxy_hello-world && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
+      }
+    }
+    }
         }
       }
     }
